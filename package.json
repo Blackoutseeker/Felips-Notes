@@ -1,0 +1,148 @@
+{
+  "name": "felips_notes",
+  "appName": "Felip's Notes",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A custom themed notepad",
+  "author": {
+    "name": "Felipe Pereira (Blackoutseeker)",
+    "url": "https://github.com/Blackoutseeker"
+  },
+  "main": "main.js",
+  "homepage": "./",
+  "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "electron-squirrel-startup": "1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-outside-click-handler": "^1.3.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.1",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.1"
+  },
+  "scripts": {
+    "react:start": "react-scripts start",
+    "react:build": "react-scripts build",
+    "electron:start": "electron-forge start",
+    "electron:build": "electron-builder",
+    "jest:test": "jest",
+    "jest:watch": "jest --watch",
+    "jest:clear": "jest --clearCache"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-typescript": "^7.15.0",
+    "@electron-forge/cli": "^6.0.0-beta.60",
+    "@electron-forge/maker-deb": "6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.54",
+    "@electron-forge/maker-zip": "6.0.0-beta.54",
+    "@types/jest": "^27.0.1",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-outside-click-handler": "^1.3.0",
+    "@types/react-redux": "^7.1.18",
+    "@types/styled-components": "^5.1.13",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "babel-core": "^6.26.3",
+    "electron": "13.2.3",
+    "electron-builder": "22.9.1",
+    "electron-reloader": "^1.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "Felip's Notes"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "build": {
+    "appId": "com.felips_notes.felipstudio",
+    "productName": "Felip's Notes",
+    "icon": "assets/Icon.png",
+    "files": [
+      "build/**/*",
+      "./main.js"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "build"
+    },
+    "win": {
+      "target": [
+        "portable",
+        "msi"
+      ]
+    },
+    "portable": {
+      "artifactName": "Felip's Notes.exe"
+    },
+    "msi": {
+      "artifactName": "Felip's Notes Installer.msi"
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "tar.gz"
+      ]
+    }
+  },
+  "comments": {
+    "to-dev": "To develop, install the \"react-scripts\" dependency to run react commands.",
+    "to-build": "To build, first run the command \"react:build\". After that, you need to remove the dependency \"react-scripts\" (it conflicts with \"electron-builder\"), then run the command \"electron:build\"."
+  }
+}
